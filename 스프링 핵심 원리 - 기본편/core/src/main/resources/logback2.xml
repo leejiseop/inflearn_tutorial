@@ -10,3 +10,4 @@
 </configuration>
 
 <!--Spring Boot 를 사용하지 않고 ApplicationContext를 직접 생성하는 경우 LogLevel 변경용-->
+<!--Spring Boot 를 사용하는 경우 application.properties 에서 LogLevel 변경-->
