@@ -14,22 +14,34 @@ public class JpaMain {
         // 절대로!! 쓰레드 간 공유하면 안된다!!
         // em 은 사용하고 버리는 것
         EntityManager em = emf.createEntityManager();
-        //code
 
-        // tx start
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
         try {
-            Member findmember1 = em.find(Member.class, 101L);
-            System.out.println("findmember1 = " + findmember1);
-            em.clear();
-            Member findmember2 = em.find(Member.class, 101L);
-            System.out.println("findmember2 = " + findmember2);
-            findmember2 = em.find(Member.class, 101L);
-            System.out.println("findmember2 = " + findmember2);
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
-            // tx commit
+            Member member = new Member();
+            member.setUsername("member1");
+
+            member.changeTeam(team); // set 보다는 연관관계 편의 메서드 만들어서 사용
+//            or
+//            team.addMember(member);
+
+
+
+            em.persist(member);
+            em.flush();
+            em.clear();
+
+            Team findTeam = em.find(Team.class, team.getId()); // 1차 캐시
+            List<Member> members = findTeam.getMembers();
+
+
+
+
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
             tx.rollback();
