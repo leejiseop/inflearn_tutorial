@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Member {
-
+    // 테스트
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // strategy 생략하면 AUTO
     @Column(name = "MEMBER_ID")
