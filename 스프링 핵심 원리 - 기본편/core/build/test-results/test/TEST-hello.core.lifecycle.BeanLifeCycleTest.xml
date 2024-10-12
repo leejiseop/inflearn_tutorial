@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hello.core.lifecycle.BeanLifeCycleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T13:54:21" hostname="DESKTOP-DQN4VPB" time="0.017">
+  <properties/>
+  <testcase name="lifeCycleTest()" classname="hello.core.lifecycle.BeanLifeCycleTest" time="0.017"/>
+  <system-out><![CDATA[22:54:21.633 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext -- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6029f2a4
+22:54:21.634 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+22:54:21.641 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+22:54:21.641 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+22:54:21.641 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+22:54:21.642 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+22:54:21.642 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'beanLifeCycleTest.LifeCycleConfig'
+22:54:21.643 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'networkClient'
+생성자 호출, url = null
+NetworkClient.init
+connect: http://hello-spring.dev
+call: http://hello-spring.dev message=초기화 연결 메시지
+22:54:21.645 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext -- Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@6029f2a4, started on Thu Apr 25 22:54:21 KST 2024
+NetworkClient.close
+close http://hello-spring.dev
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

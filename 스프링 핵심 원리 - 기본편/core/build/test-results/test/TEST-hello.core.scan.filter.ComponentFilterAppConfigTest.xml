@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hello.core.scan.filter.ComponentFilterAppConfigTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T13:54:21" hostname="DESKTOP-DQN4VPB" time="0.014">
+  <properties/>
+  <testcase name="filterScan()" classname="hello.core.scan.filter.ComponentFilterAppConfigTest" time="0.014"/>
+  <system-out><![CDATA[22:54:21.708 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext -- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@37bda983
+22:54:21.708 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+22:54:21.711 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\test\hello\core\scan\filter\BeanA.class]
+22:54:21.716 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+22:54:21.717 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+22:54:21.717 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+22:54:21.717 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+22:54:21.718 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'componentFilterAppConfigTest.ComponentFilterAppConfig'
+22:54:21.718 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'beanA'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

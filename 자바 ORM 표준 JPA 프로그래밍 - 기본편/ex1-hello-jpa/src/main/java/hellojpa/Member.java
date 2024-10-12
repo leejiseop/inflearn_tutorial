@@ -27,11 +27,13 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-//    @Column(name = "TEAM_ID")
-//    private Long teamId;
     @ManyToOne
     @JoinColumn(name = "TEAM_ID") // db 입장에서 join 할때 필요한 column 명
     private Team team;
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
 
     public Member() {
         // for JPA
@@ -61,6 +63,8 @@ public class Member {
         this.team = team;
     }
 
+    // 연관관계 메서드는 한쪽에만 만드는게 나중에 문제 방지에 좋다 무한루프 등 고민거리 생길 수 있다
+    // changeTeam 은 지우고 addMember 만 남기기
     public void changeTeam(Team team) {
         this.team = team;
         team.getMembers().add(this); // Member 나 자신을 넣어줌으로써 양쪽 세팅 완료

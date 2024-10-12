@@ -25,24 +25,35 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
-
-            member.changeTeam(team); // set 보다는 연관관계 편의 메서드 만들어서 사용
-//            or
-//            team.addMember(member);
-
-
-
+            member.setTeam(team);
+//            member.changeTeam(team); // set 보다는 연관관계 편의 메서드 만들어서 사용 (team.addMember(member);)
             em.persist(member);
+
+//            team.getMembers().add(member); // 안해줘도 된다
+
             em.flush();
             em.clear();
 
-            Team findTeam = em.find(Team.class, team.getId()); // 1차 캐시
+            System.out.println("em.find");
+            Team findTeam = em.find(Team.class, team.getId());
+            System.out.println("members");
             List<Member> members = findTeam.getMembers();
 
+            for (Member m : members) {
+                System.out.println("m = " + m.getUsername());
+            }
 
+//            Member findMember = em.find(Member.class, member.getId()); // 1차 캐시
+//            Team findTeam = em.find(Team.class, team.getId()); // 1차 캐시
+//
+//            Team team2 = new Team();
+//            team2.setName("TeamA");
+//            em.persist(team2); // ????? 어젠 왜 안됐지
+//            findMember.setTeam(team2);
 
-
+            System.out.println("before commit");
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
+            System.out.println("after commit");
         } catch (Exception e) {
             tx.rollback();
         } finally {

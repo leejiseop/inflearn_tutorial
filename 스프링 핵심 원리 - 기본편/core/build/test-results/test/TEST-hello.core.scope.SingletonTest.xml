@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hello.core.scope.SingletonTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T13:54:21" hostname="DESKTOP-DQN4VPB" time="0.006">
+  <properties/>
+  <testcase name="singletonBeanFind()" classname="hello.core.scope.SingletonTest" time="0.006"/>
+  <system-out><![CDATA[22:54:21.732 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext -- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5f3f3d00
+22:54:21.732 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+22:54:21.733 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+22:54:21.733 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+22:54:21.733 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+22:54:21.734 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+22:54:21.734 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'singletonTest.SingletonBean'
+SingletonBean.init
+find singletonBean1
+find singletonBean2
+singletonBean1 = hello.core.scope.SingletonTest$SingletonBean@29c59b6e
+singletonBean2 = hello.core.scope.SingletonTest$SingletonBean@29c59b6e
+22:54:21.736 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext -- Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@5f3f3d00, started on Thu Apr 25 22:54:21 KST 2024
+SingletonBean.destroy
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

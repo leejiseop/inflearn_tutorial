@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hello.core.xml.XmlAppCnotext" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T13:54:21" hostname="DESKTOP-DQN4VPB" time="0.095">
+  <properties/>
+  <testcase name="xmlAppContext()" classname="hello.core.xml.XmlAppCnotext" time="0.095"/>
+  <system-out><![CDATA[22:54:21.872 [Test worker] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader -- Loaded 4 bean definitions from class path resource [appConfig.xml]
+22:54:21.872 [Test worker] DEBUG o.s.c.s.GenericXmlApplicationContext -- Refreshing org.springframework.context.support.GenericXmlApplicationContext@71139e77
+22:54:21.873 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'memberService'
+22:54:21.873 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'memberRepository'
+22:54:21.873 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'orderService'
+22:54:21.873 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'discountPolicy'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

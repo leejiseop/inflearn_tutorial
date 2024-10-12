@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - AutoAppConfigTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>AutoAppConfigTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/hello.core.scan.html">hello.core.scan</a> &gt; AutoAppConfigTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.044s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">basicScan()</td>
+<td class="success">0.044s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>22:54:21.662 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext -- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@135e49b2
+22:54:21.662 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+22:54:21.683 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\common\MyLogger.class]
+22:54:21.684 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\discount\FixDiscountPolicy.class]
+22:54:21.685 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\discount\RateDiscountPolicy.class]
+22:54:21.687 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\member\MemberServiceImpl.class]
+22:54:21.688 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\member\MemoryMemberRepository.class]
+22:54:21.689 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\order\OrderServiceImpl.class]
+22:54:21.698 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+22:54:21.698 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+22:54:21.698 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+22:54:21.699 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+22:54:21.699 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'autoAppConfig'
+22:54:21.700 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'fixDiscountPolicy'
+22:54:21.700 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'rateDiscountPolicy'
+22:54:21.700 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'memberServiceImpl'
+22:54:21.700 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'memoryMemberRepository'
+22:54:21.701 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Autowiring by type from bean name 'memberServiceImpl' via constructor to bean named 'memoryMemberRepository'
+22:54:21.701 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'orderServiceImpl'
+22:54:21.702 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Autowiring by type from bean name 'orderServiceImpl' via constructor to bean named 'memoryMemberRepository'
+22:54:21.702 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Autowiring by type from bean name 'orderServiceImpl' via constructor to bean named 'rateDiscountPolicy'
+memberRepository = hello.core.member.MemoryMemberRepository@606b53a3
+discountPolicy = hello.core.discount.RateDiscountPolicy@432c0f1
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.6</a> at Apr 25, 2024, 10:54:21 PM</p>
+</div>
+</div>
+</body>
+</html>

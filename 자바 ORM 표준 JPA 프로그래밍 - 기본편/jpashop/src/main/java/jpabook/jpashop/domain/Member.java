@@ -2,15 +2,22 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Member {
-    // 테스트
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // strategy 생략하면 AUTO
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) // strategy 생략하면 AUTO
     @Column(name = "MEMBER_ID")
     private Long id;
     private String name;
     private String city;
+    private String street;
+    private String zipcode;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -52,6 +59,5 @@ public class Member {
         this.zipcode = zipcode;
     }
 
-    private String street;
-    private String zipcode;
+
 }

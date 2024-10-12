@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hello.core.scan.AutoAppConfigTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T13:54:21" hostname="DESKTOP-DQN4VPB" time="0.044">
+  <properties/>
+  <testcase name="basicScan()" classname="hello.core.scan.AutoAppConfigTest" time="0.044"/>
+  <system-out><![CDATA[22:54:21.662 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext -- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@135e49b2
+22:54:21.662 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+22:54:21.683 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\common\MyLogger.class]
+22:54:21.684 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\discount\FixDiscountPolicy.class]
+22:54:21.685 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\discount\RateDiscountPolicy.class]
+22:54:21.687 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\member\MemberServiceImpl.class]
+22:54:21.688 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\member\MemoryMemberRepository.class]
+22:54:21.689 [Test worker] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner -- Identified candidate component class: file [C:\Users\LJS\Desktop\포폴\inflearn_tutorial\스프링 핵심 원리 - 기본편\core\build\classes\java\main\hello\core\order\OrderServiceImpl.class]
+22:54:21.698 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+22:54:21.698 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+22:54:21.698 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+22:54:21.699 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+22:54:21.699 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'autoAppConfig'
+22:54:21.700 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'fixDiscountPolicy'
+22:54:21.700 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'rateDiscountPolicy'
+22:54:21.700 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'memberServiceImpl'
+22:54:21.700 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'memoryMemberRepository'
+22:54:21.701 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Autowiring by type from bean name 'memberServiceImpl' via constructor to bean named 'memoryMemberRepository'
+22:54:21.701 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Creating shared instance of singleton bean 'orderServiceImpl'
+22:54:21.702 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Autowiring by type from bean name 'orderServiceImpl' via constructor to bean named 'memoryMemberRepository'
+22:54:21.702 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory -- Autowiring by type from bean name 'orderServiceImpl' via constructor to bean named 'rateDiscountPolicy'
+memberRepository = hello.core.member.MemoryMemberRepository@606b53a3
+discountPolicy = hello.core.discount.RateDiscountPolicy@432c0f1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
