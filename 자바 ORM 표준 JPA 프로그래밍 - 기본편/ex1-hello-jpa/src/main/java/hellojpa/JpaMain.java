@@ -2,6 +2,7 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class JpaMain {
@@ -19,41 +20,31 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
+            // 연관관계 편의 메서드 정리하기
+
+//            Movie movie = new Movie();
+//            movie.setDirector("aaaa");
+//            movie.setActor("bbbb");
+//            movie.setName("바람과함께사라지다");
+//            movie.setPrice(10000);
 
             Member member = new Member();
-            member.setUsername("member1");
-            member.setTeam(team);
-//            member.changeTeam(team); // set 보다는 연관관계 편의 메서드 만들어서 사용 (team.addMember(member);)
+            member.setUsername("user1");
+            member.setCreatedBy("kim");
+            member.setCreatedDate(LocalDateTime.now());
+
+
             em.persist(member);
 
-//            team.getMembers().add(member); // 안해줘도 된다
-
+            // 조회할때는 jpa 가 알아서 join 해서 가져와준다
             em.flush();
             em.clear();
 
-            System.out.println("em.find");
-            Team findTeam = em.find(Team.class, team.getId());
-            System.out.println("members");
-            List<Member> members = findTeam.getMembers();
+//            Movie findMovie = em.find(Movie.class, movie.getId());
+//            // 변수 생성 command option v 게터세터생성자 command n
+//            System.out.println("findMovie = " + findMovie);
 
-            for (Member m : members) {
-                System.out.println("m = " + m.getUsername());
-            }
-
-//            Member findMember = em.find(Member.class, member.getId()); // 1차 캐시
-//            Team findTeam = em.find(Team.class, team.getId()); // 1차 캐시
-//
-//            Team team2 = new Team();
-//            team2.setName("TeamA");
-//            em.persist(team2); // ????? 어젠 왜 안됐지
-//            findMember.setTeam(team2);
-
-            System.out.println("before commit");
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
-            System.out.println("after commit");
         } catch (Exception e) {
             tx.rollback();
         } finally {
