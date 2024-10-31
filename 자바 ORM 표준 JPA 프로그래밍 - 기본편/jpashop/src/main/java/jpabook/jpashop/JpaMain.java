@@ -4,9 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderItem;
+import jpabook.jpashop.domain.*;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -25,10 +23,19 @@ public class JpaMain {
             // persist 안해줘도 반영되나? 정확한 반영 시점은 언제? -> gpt에게 질의
 
             // 굳이 양방향
-            OrderItem orderItem =  new OrderItem();
-            orderItem.setOrder(order);
+//            OrderItem orderItem =  new OrderItem();
+//            orderItem.setOrder(order);
 
-            em.persist(orderItem);
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("김영한");
+
+            Album album = new Album();
+            album.setName("JPA album");
+            album.setArtist("김영한아티스트");
+
+            em.persist(book);
+            em.persist(album);
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
