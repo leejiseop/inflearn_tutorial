@@ -20,29 +20,16 @@ public class JpaMain {
         tx.begin();
 
         try {
-            // 연관관계 편의 메서드 정리하기
+            Parent parent = new Parent();
+            Child child1 = new Child();
+            Child child2 = new Child();
 
-//            Movie movie = new Movie();
-//            movie.setDirector("aaaa");
-//            movie.setActor("bbbb");
-//            movie.setName("바람과함께사라지다");
-//            movie.setPrice(10000);
+            parent.addChild(child1);
+            parent.addChild(child2);
 
-            Member member = new Member();
-            member.setUsername("user1");
-            member.setCreatedBy("kim");
-            member.setCreatedDate(LocalDateTime.now());
+            em.persist(parent);
 
 
-            em.persist(member);
-
-            // 조회할때는 jpa 가 알아서 join 해서 가져와준다
-            em.flush();
-            em.clear();
-
-//            Movie findMovie = em.find(Movie.class, movie.getId());
-//            // 변수 생성 command option v 게터세터생성자 command n
-//            System.out.println("findMovie = " + findMovie);
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {

@@ -29,19 +29,19 @@ public class Member extends BaseEntity{
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEAM_ID") // db 입장에서 join 할때 필요한 column 명
     private Team team;
 
-    @OneToOne
-    @JoinColumn(name = "LOCKER_ID")
-    private Locker locker;
-
-//    @ManyToMany
-//    @JoinTable(name = "MEMBER_PRODUCT")
-//    private List<Product> products = new ArrayList<>();
-    @OneToMany(mappedBy = "member")
-    private List<MemberProduct> memberProducts = new ArrayList<>();
+//    @OneToOne
+//    @JoinColumn(name = "LOCKER_ID")
+//    private Locker locker;
+//
+////    @ManyToMany
+////    @JoinTable(name = "MEMBER_PRODUCT")
+////    private List<Product> products = new ArrayList<>();
+//    @OneToMany(mappedBy = "member")
+//    private List<MemberProduct> memberProducts = new ArrayList<>();
 
     public Member() {
         // for JPA
@@ -86,4 +86,20 @@ public class Member extends BaseEntity{
                 ", team=" + team +
                 '}';
     }
+
+//    public Locker getLocker() {
+//        return locker;
+//    }
+//
+//    public void setLocker(Locker locker) {
+//        this.locker = locker;
+//    }
+//
+//    public List<MemberProduct> getMemberProducts() {
+//        return memberProducts;
+//    }
+//
+//    public void setMemberProducts(List<MemberProduct> memberProducts) {
+//        this.memberProducts = memberProducts;
+//    }
 }
