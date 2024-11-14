@@ -22,10 +22,6 @@ public class JpaMain {
             // fimdMember.setTeam(newTeam);
             // persist 안해줘도 반영되나? 정확한 반영 시점은 언제? -> gpt에게 질의
 
-            // 굳이 양방향
-//            OrderItem orderItem =  new OrderItem();
-//            orderItem.setOrder(order);
-
             Book book = new Book();
             book.setName("JPA");
             book.setAuthor("김영한");
