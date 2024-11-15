@@ -20,14 +20,13 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Parent parent = new Parent();
-            Child child1 = new Child();
-            Child child2 = new Child();
 
-            parent.addChild(child1);
-            parent.addChild(child2);
+            Member member = new Member();
+            member.setUsername("hello");
+            member.setHomeAddress(new Address("city", "street", "10000"));
+            member.setWorkPeriod(new Period());
 
-            em.persist(parent);
+            em.persist(member);
 
 
 
