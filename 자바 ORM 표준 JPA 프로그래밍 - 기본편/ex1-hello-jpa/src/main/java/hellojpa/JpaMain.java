@@ -20,15 +20,18 @@ public class JpaMain {
         tx.begin();
 
         try {
-
             Member member = new Member();
-            member.setUsername("hello");
-            member.setHomeAddress(new Address("city", "street", "10000"));
-            member.setWorkPeriod(new Period());
+            member.setUsername("member 1");
+            member.setHomeAddress(new Address("homeCity1", "strees", "10000"));
+
+            member.getFavoriteFoods().add("치킨");
+            member.getFavoriteFoods().add("족발");
+            member.getFavoriteFoods().add("피자");
+
+            member.getAddressHistory().add(new Address("old1", "strees", "10000"));
+            member.getAddressHistory().add(new Address("old2", "strees", "10000"));
 
             em.persist(member);
-
-
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
