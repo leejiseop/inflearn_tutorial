@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 public class JpaMain {
 
@@ -32,6 +33,24 @@ public class JpaMain {
             member.getAddressHistory().add(new Address("old2", "strees", "10000"));
 
             em.persist(member);
+
+            em.flush();
+            em.clear();
+
+            System.out.println("========== S T A R T ==========");
+            Member findMember = em.find(Member.class, member.getId());
+
+//            findMember.getHomeAddress().setCity("newCity");
+            Address a = findMember.getHomeAddress();
+//            findMember.setHomeAddress(new Address("new city", a.getStreet(), a.getZipcode()));
+
+//            findMember.getFavoriteFoods().remove("치킨");
+//            findMember.getFavoriteFoods().add("한식");
+
+            // equals 를 사용한다
+            findMember.getAddressHistory().remove(new Address("old1", "strees", "10000"));
+            findMember.getAddressHistory().add(new Address("new_city1", "strees", "10000"));
+
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
