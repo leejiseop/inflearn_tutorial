@@ -15,23 +15,11 @@ public class JpaMain {
 
         try {
 
-            Order order = new Order();
-
-            em.persist(order);
-//            order.addOrderItem(new OrderItem());
-            // fimdMember.setTeam(newTeam);
-            // persist 안해줘도 반영되나? 정확한 반영 시점은 언제? -> gpt에게 질의
-
             Book book = new Book();
             book.setName("JPA");
             book.setAuthor("김영한");
 
-            Album album = new Album();
-            album.setName("JPA album");
-            album.setArtist("김영한아티스트");
-
             em.persist(book);
-            em.persist(album);
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
