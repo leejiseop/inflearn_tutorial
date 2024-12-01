@@ -24,20 +24,26 @@ public class JpaMain {
         tx.begin();
 
         try {
+            Team team = new Team();
+            team.setName("teamA");
+            em.persist(team);
 
             Member member = new Member();
-            member.setUsername("member1");
+            member.setUsername("관리자1");
             member.setAge(10);
+            member.setTeam(team);
+
             em.persist(member);
 
+            em.flush();
+            em.clear();
 
-            List<MemberDTO> result = em.createQuery("select new jpql.MemberDTO(m.username, m.age) from Member m", MemberDTO.class)
+            String query = "select nullif(m.username, '관리자') from Member m";
+            List<String> result = em.createQuery(query, String.class)
                     .getResultList();
-            MemberDTO memberDTO = result.get(0);
-            System.out.println("memberDTO.getUsername() = " + memberDTO.getUsername());
-            System.out.println("memberDTO.getAge() = " + memberDTO.getAge());
-            
-
+            for (String s : result) {
+                System.out.println("s = " + s);
+            }
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
