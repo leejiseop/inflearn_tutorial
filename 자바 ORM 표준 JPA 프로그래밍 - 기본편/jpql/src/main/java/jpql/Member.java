@@ -3,6 +3,10 @@ package jpql;
 import jakarta.persistence.*;
 
 @Entity
+@NamedQuery( // 이름으로 쿼리 불러와서 재활용 가능
+        name = "Member.findByUsername",
+        query = "select m from Member m where m.username = :username"
+)
 public class Member {
 
     @Id @GeneratedValue

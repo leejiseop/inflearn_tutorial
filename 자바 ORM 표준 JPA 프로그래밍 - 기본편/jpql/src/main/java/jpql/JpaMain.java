@@ -24,26 +24,46 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Team team = new Team();
-            team.setName("teamA");
-            em.persist(team);
+            Team team1 = new Team();
+            team1.setName("team1");
+            em.persist(team1);
 
-            Member member = new Member();
-            member.setUsername("관리자1");
-            member.setAge(10);
-            member.setTeam(team);
+            Team team2 = new Team();
+            team2.setName("team2");
+            em.persist(team2);
 
-            em.persist(member);
+            Member member1 = new Member();
+            member1.setUsername("회원1");
+            member1.setTeam(team1);
+            em.persist(member1);
+
+            Member member2 = new Member();
+            member2.setUsername("회원2");
+            member2.setTeam(team1);
+            em.persist(member2);
+
+            Member member3 = new Member();
+            member3.setUsername("회원3");
+            member3.setTeam(team2);
+            em.persist(member3);
 
             em.flush();
             em.clear();
 
-            String query = "select nullif(m.username, '관리자') from Member m";
-            List<String> result = em.createQuery(query, String.class)
-                    .getResultList();
-            for (String s : result) {
-                System.out.println("s = " + s);
-            }
+            int resultCount = em.createQuery("update Member m set m.age = 20")
+                    .executeUpdate();
+
+//            String query = "select t from Team t join fetch t.members";
+//            List<Team> result = em.createQuery(query, Team.class).getResultList();
+//            System.out.println(result.size());
+//            for (Team team : result) {
+//                System.out.println("Team: " + team.getName() + ", members = " + team.getMembers().size());
+//                for(Member member : team.getMembers()) {
+//                    System.out.println("name = " + member.getUsername());
+//                }
+//            }
+
+
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
