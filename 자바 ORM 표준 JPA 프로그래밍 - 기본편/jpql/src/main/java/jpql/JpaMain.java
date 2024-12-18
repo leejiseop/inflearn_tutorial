@@ -28,42 +28,24 @@ public class JpaMain {
             team1.setName("team1");
             em.persist(team1);
 
-            Team team2 = new Team();
-            team2.setName("team2");
-            em.persist(team2);
-
             Member member1 = new Member();
+            member1.setId(5L);
             member1.setUsername("회원1");
             member1.setTeam(team1);
-            em.persist(member1);
 
-            Member member2 = new Member();
-            member2.setUsername("회원2");
-            member2.setTeam(team1);
-            em.persist(member2);
-
-            Member member3 = new Member();
-            member3.setUsername("회원3");
-            member3.setTeam(team2);
-            em.persist(member3);
+            try {
+                em.merge(member1);
+            } catch (PersistenceException e) {
+                System.out.println(e);
+            }
+            System.out.println("member1 = " + member1.getId());
 
             em.flush();
             em.clear();
 
-            int resultCount = em.createQuery("update Member m set m.age = 20")
-                    .executeUpdate();
+            Member findMember = em.find(Member.class, 5L);
 
-//            String query = "select t from Team t join fetch t.members";
-//            List<Team> result = em.createQuery(query, Team.class).getResultList();
-//            System.out.println(result.size());
-//            for (Team team : result) {
-//                System.out.println("Team: " + team.getName() + ", members = " + team.getMembers().size());
-//                for(Member member : team.getMembers()) {
-//                    System.out.println("name = " + member.getUsername());
-//                }
-//            }
-
-
+            System.out.println("member1 = " + findMember.getId());
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
