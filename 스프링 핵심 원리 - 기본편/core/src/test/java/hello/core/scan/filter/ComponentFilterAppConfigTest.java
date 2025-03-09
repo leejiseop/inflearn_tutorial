@@ -33,10 +33,10 @@ public class ComponentFilterAppConfigTest {
             /*
             * FilterType
             * type = FilterType.ANNOTATION 기본값(생략 가능) - 이 어노테이션이 달려있는 클래스를 지정하겠다
-            * type = ASSIGNABLE_TYPE 클래스 명으로 직접 지정하겠다
-            * type = ASPECTJ AspectJ 패턴 사용
-            * type = REGEX 정규 표현식
-            * type = CUSTOM TypeFilter 라는 인터페이스 구현하여 처리
+            * type = FilterType.ASSIGNABLE_TYPE 클래스 명으로 직접 지정하겠다
+            * type = FilterType.ASPECTJ AspectJ 패턴 사용
+            * type = FilterType.REGEX 정규 표현식
+            * type = FilterType.CUSTOM TypeFilter 라는 인터페이스 구현하여 처리
             * */
 
             // @Component 면 충분하기 때문에, 쓸 일 거의 없음

@@ -24,28 +24,17 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Team team1 = new Team();
-            team1.setName("team1");
-            em.persist(team1);
+            Member member = new Member();
+            member.setUsername("member1");
+            em.persist(member);
 
-            Member member1 = new Member();
-            member1.setId(5L);
-            member1.setUsername("회원1");
-            member1.setTeam(team1);
+            Team team = new Team();
+            team.setName("teamA");
+            team.getMembers().add(member);
+            em.persist(team);
 
-            try {
-                em.merge(member1);
-            } catch (PersistenceException e) {
-                System.out.println(e);
-            }
-            System.out.println("member1 = " + member1.getId());
+            member.setTeam(team);
 
-            em.flush();
-            em.clear();
-
-            Member findMember = em.find(Member.class, 5L);
-
-            System.out.println("member1 = " + findMember.getId());
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {
