@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HelloController {
 
     @GetMapping("hello")
-    public String hello(Model model) { // 데이터를 실어서 view 로 넘긴다
+    public String hello(Model model) {
         model.addAttribute("data", "hello!!!");
         return "hello";
     }

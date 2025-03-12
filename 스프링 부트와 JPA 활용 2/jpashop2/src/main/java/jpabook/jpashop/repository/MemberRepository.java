@@ -1,19 +1,16 @@
 package jpabook.jpashop.repository;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
 public class MemberRepository {
 
-//    @PersistenceContext // Spring 이 엔티티 매니저를 주입해준다
-    // spring boot 의 spring data jpa 를 쓴다면 Autowired 로 대체 가능!
     private final EntityManager em;
 
     public void save(Member member) {
@@ -21,12 +18,11 @@ public class MemberRepository {
     }
 
     public Member findOne(Long id) {
-        return em.find(Member.class, id); // 타입, PK
+        return em.find(Member.class, id);
     }
 
-    // sql 은 테이블을 대상으로 쿼리를 하는데, jpql 은 entity 객체를 대상으로 쿼리를 한다
-    public List<Member> findAll() { // Member.class : 조회 타입
-        return em.createQuery("select m from Member m", Member.class) // jpql
+    public List<Member> findAll() {
+        return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
 
@@ -35,5 +31,4 @@ public class MemberRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
-
 }

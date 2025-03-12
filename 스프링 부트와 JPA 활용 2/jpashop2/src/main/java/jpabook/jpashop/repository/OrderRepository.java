@@ -1,21 +1,24 @@
 package jpabook.jpashop.repository;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
-import jakarta.persistence.criteria.*;
 import jpabook.jpashop.domain.Order;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@RequiredArgsConstructor
 public class OrderRepository {
 
     private final EntityManager em;
+
+    public OrderRepository(EntityManager em) {
+        this.em = em;
+    }
 
     public void save(Order order) {
         em.persist(order);
@@ -25,24 +28,15 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
-    // 가장 추천하는 최신 방식
-    public List<Order> findAll(OrderSearch orderSearch) {
-        // jpql
-        return em.createQuery("select o from Order o" +
-                        " join o.member m" +
-                        " where o.status = :status" +  // setParameter
-                        " and m.name like :name", Order.class) // setParameter
-                .setParameter("status", orderSearch.getOrderStatus())
-                .setParameter("name", orderSearch.getMemberName())
-                .setMaxResults(1000) // 최대 1000개까지만 조회한다. setFirstResult 로 페이징도 가능
+    public List<Order> findAll() {
+        return em.createQuery("select o from Order o", Order.class)
                 .getResultList();
     }
 
-    // 제일 초기 방식
     public List<Order> findAllByString(OrderSearch orderSearch) {
 
-        String jpql = "select o from Order o join o.member m";
-        boolean isFirstCondition = true;
+            String jpql = "select o from Order o join o.member m";
+            boolean isFirstCondition = true;
 
         //주문 상태 검색
         if (orderSearch.getOrderStatus() != null) {
@@ -80,7 +74,7 @@ public class OrderRepository {
     }
 
     /**
-     * JPA Criteria - 초기 방식의 개선
+     * JPA Criteria
      */
     public List<Order> findAllByCriteria(OrderSearch orderSearch) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -107,4 +101,32 @@ public class OrderRepository {
         return query.getResultList();
     }
 
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .getResultList();
+    }
+
+    public List<Order> findAllWithItem() {
+        return em.createQuery(
+                "select distinct o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i", Order.class)
+                .getResultList();
+    }
+
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+    }
 }
+
