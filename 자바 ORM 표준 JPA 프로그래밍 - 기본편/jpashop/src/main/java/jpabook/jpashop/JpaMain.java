@@ -14,12 +14,20 @@ public class JpaMain {
         tx.begin();
 
         try {
+            Member member = new Member();
+            member.setName("member1");
 
-            Book book = new Book();
-            book.setName("JPA");
-            book.setAuthor("김영한");
+            Address address = new Address("city1", "street1", "123");
+            member.setAddress(address);
 
-            em.persist(book);
+            em.persist(member);
+
+            em.flush();
+            em.clear();
+            
+            Member findMember = em.find(Member.class, member.getId());
+            System.out.println("findMember.getAddress().getCity() = " + findMember.getAddress().getCity());
+
 
             tx.commit(); // commit 시점에 변경점을 감지하여 update 한다
         } catch (Exception e) {

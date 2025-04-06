@@ -39,7 +39,7 @@ public class Member extends BaseEntity {
         return address;
     }
 
-    private void setAddress(Address address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -47,7 +47,7 @@ public class Member extends BaseEntity {
         return orders;
     }
 
-    private void setOrders(List<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 }

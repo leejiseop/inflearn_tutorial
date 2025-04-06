@@ -2,6 +2,8 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;
 
@@ -15,6 +17,14 @@ public class Address {
 
     @Column(length = 5)
     private String zipcode;
+
+    public Address(){}
+
+    public Address(String city, String street, String number) {
+        this.city = city;
+        this.street = street;
+        this.zipcode = number;
+    }
 
     private String fullAddress() { // 이런걸 직접 만들어서 쓸 수 있다
         return getCity() + " " + getStreet() + " " + getZipcode();

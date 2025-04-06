@@ -80,7 +80,6 @@ public class OrderApiController {
         List<OrderDto> result = orders.stream()
                 .map(o -> new OrderDto(o))
                 .collect(toList());
-
         return result;
     }
 
